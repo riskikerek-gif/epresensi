@@ -1,0 +1,1074 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEYIN MY BF 💗</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    min-height:100vh;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 20% 20%,#ff70b7,transparent 30%),
+        radial-gradient(circle at 80% 80%,#a94dff,transparent 30%),
+        linear-gradient(135deg,#18091d,#421337,#160817);
+    color:white;
+}
+
+/* ================= BACKGROUND ================= */
+
+.bg-heart{
+    position:fixed;
+    bottom:-60px;
+    pointer-events:none;
+    animation:floatHeart linear forwards;
+    z-index:1;
+}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) scale(.4) rotate(0);
+        opacity:0;
+    }
+    15%{opacity:1}
+    100%{
+        transform:translateY(-110vh) scale(1.4) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* ================= PAGE ================= */
+
+.page{
+    position:fixed;
+    inset:0;
+    padding:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    pointer-events:none;
+
+    transform:translateX(100%) scale(.9);
+
+    transition:
+        transform .8s cubic-bezier(.77,0,.18,1),
+        opacity .5s ease;
+
+    z-index:5;
+    overflow-y:auto;
+}
+
+.page.active{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateX(0) scale(1);
+}
+
+.page.leave{
+    opacity:0;
+    transform:translateX(-100%) scale(.9);
+}
+
+/* ================= CARD ================= */
+
+.card{
+    width:100%;
+    max-width:650px;
+    text-align:center;
+
+    padding:35px 25px;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.11);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.5),
+        inset 0 0 40px rgba(255,255,255,.04);
+
+    animation:cardAppear .8s ease;
+}
+
+@keyframes cardAppear{
+    from{
+        opacity:0;
+        transform:translateY(50px) rotateX(20deg);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) rotateX(0);
+    }
+}
+
+h1{
+    font-size:clamp(30px,8vw,50px);
+    color:white;
+    text-shadow:
+        0 0 10px #ff4fa3,
+        0 0 30px #ff4fa3,
+        0 0 60px #ff4fa3;
+    margin-bottom:15px;
+}
+
+p{
+    color:#ffe9f5;
+    line-height:1.7;
+    margin:10px 0;
+}
+
+.love-text{
+    font-size:20px;
+    font-weight:bold;
+    color:#ffd2e9;
+}
+
+/* ================= BUTTON ================= */
+
+button{
+    border:none;
+    border-radius:50px;
+
+    padding:14px 28px;
+    margin:10px 5px;
+
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:linear-gradient(90deg,#ff3d9a,#a83cff);
+
+    box-shadow:
+        0 8px 30px rgba(255,50,160,.4);
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-4px) scale(1.06);
+    box-shadow:
+        0 12px 40px rgba(255,50,160,.7);
+}
+
+/* ================= QRIS ================= */
+
+.qris{
+    width:280px;
+    max-width:90%;
+
+    padding:12px;
+    background:white;
+
+    border-radius:25px;
+
+    margin:20px auto;
+
+    display:block;
+
+    box-shadow:
+        0 0 25px white,
+        0 0 60px #ff4fa3;
+
+    animation:qrisMove 3s infinite ease-in-out;
+}
+
+@keyframes qrisMove{
+    0%,100%{
+        transform:translateY(0) rotate(-1deg);
+    }
+    50%{
+        transform:translateY(-12px) rotate(1deg);
+    }
+}
+
+/* ================= INPUT ================= */
+
+input{
+    width:90%;
+    max-width:350px;
+
+    padding:16px;
+
+    border:none;
+    outline:none;
+
+    border-radius:50px;
+
+    text-align:center;
+
+    font-size:17px;
+
+    color:#7d2458;
+
+    background:white;
+
+    box-shadow:
+        0 0 25px rgba(255,70,170,.5);
+}
+
+/* =================================================
+   KUCING LANGSUNG DARI EMOJI
+================================================= */
+
+.cat{
+    font-size:150px;
+    line-height:1;
+
+    margin:25px auto;
+
+    display:block;
+
+    filter:
+        drop-shadow(0 15px 20px rgba(0,0,0,.3))
+        drop-shadow(0 0 25px #ff6bb5);
+
+    animation:catMove 1.8s infinite ease-in-out;
+}
+
+@keyframes catMove{
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(-5deg)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            translateY(-18px)
+            rotate(5deg)
+            scale(1.08);
+    }
+}
+
+/* KUCING KESEL */
+.angry-cat{
+    font-size:150px;
+    animation:
+        angry 0.35s infinite alternate,
+        angryJump 1.5s infinite;
+}
+
+@keyframes angry{
+    from{transform:rotate(-8deg)}
+    to{transform:rotate(8deg)}
+}
+
+@keyframes angryJump{
+    0%,100%{translate:0 0}
+    50%{translate:0 -15px}
+}
+
+/* KUCING SENYUM */
+.happy-cat{
+    font-size:150px;
+    animation:
+        happy 2s infinite ease-in-out;
+}
+
+@keyframes happy{
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+    50%{
+        transform:translateY(-20px) scale(1.1);
+    }
+}
+
+/* ================= FOTO ================= */
+
+.photo{
+    width:100%;
+    max-height:450px;
+    object-fit:cover;
+
+    border-radius:25px;
+
+    border:7px solid white;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.45),
+        0 0 30px rgba(255,70,170,.35);
+
+    transition:.5s;
+}
+
+.photo:hover{
+    transform:scale(1.03) rotate(1deg);
+}
+
+/* ================= SLIDE ================= */
+
+.photoSlide{
+    display:none;
+}
+
+.photoSlide.active{
+    display:block;
+    animation:photoSlide .8s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes photoSlide{
+    from{
+        opacity:0;
+        transform:
+            translateX(100px)
+            rotate(5deg)
+            scale(.85);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateX(0)
+            rotate(0)
+            scale(1);
+    }
+}
+
+/* ================= DOT ================= */
+
+.dots{
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    margin:20px;
+}
+
+.dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#ffffff55;
+    transition:.3s;
+}
+
+.dot.active{
+    width:30px;
+    background:#ff62ad;
+    box-shadow:0 0 15px #ff62ad;
+}
+
+/* =================================================
+   PELUKAN
+================================================= */
+
+.hug{
+    font-size:130px;
+    margin:20px;
+
+    animation:hug 2s infinite ease-in-out;
+}
+
+@keyframes hug{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+/* =================================================
+   BONEKA + BUNGA
+================================================= */
+
+.doll{
+    font-size:130px;
+    margin:20px;
+
+    animation:dollMove 2.5s infinite ease-in-out;
+
+    filter:
+        drop-shadow(0 15px 20px rgba(0,0,0,.3))
+        drop-shadow(0 0 25px #ff5dac);
+}
+
+@keyframes dollMove{
+    0%,100%{
+        transform:rotate(-5deg) translateY(0);
+    }
+
+    50%{
+        transform:rotate(5deg) translateY(-15px);
+    }
+}
+
+.flower{
+    display:inline-block;
+    animation:flower 1s infinite alternate;
+}
+
+@keyframes flower{
+    from{transform:rotate(-10deg)}
+    to{transform:rotate(10deg)}
+}
+
+/* ================= JANGAN TINGGALIN ================= */
+
+.big-love{
+    font-size:clamp(28px,7vw,45px);
+    font-weight:bold;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px #ff3d9a,
+        0 0 30px #ff3d9a,
+        0 0 60px #ff3d9a;
+
+    animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+/* ================= MUSIC ================= */
+
+audio{
+    width:100%;
+    margin-top:25px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:500px){
+
+    .card{
+        padding:28px 17px;
+    }
+
+    .cat{
+        font-size:110px;
+    }
+
+    .hug{
+        font-size:100px;
+    }
+
+    .doll{
+        font-size:100px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =================================================
+     QRIS
+================================================= -->
+
+<section id="qrisPage" class="page active">
+
+<div class="card">
+
+<h1>💗 CEYIN MY BF 💗</h1>
+
+<p class="love-text">
+Welcome to our little world 🥺💕
+</p>
+
+<p>
+Scan dulu QRIS-nya ya sayang 😚
+</p>
+
+<img
+src="qris.png"
+class="qris"
+alt="QRIS"
+>
+
+<button onclick="goTo('kodePage')">
+SUDAH SCAN 💗
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =================================================
+     KODE
+================================================= -->
+
+<section id="kodePage" class="page">
+
+<div class="card">
+
+<h1>🔐 KODE RAHASIA</h1>
+
+<p class="love-text">
+Masukkan kode rahasia untuk masuk 💕
+</p>
+
+<input
+id="password"
+type="password"
+placeholder="Kode rahasia..."
+>
+
+<br>
+
+<button onclick="cekPassword()">
+MASUK ❤️
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =================================================
+     SALAH
+================================================= -->
+
+<section id="salahPage" class="page">
+
+<div class="card">
+
+<h1>😾 SALAHHH!</h1>
+
+<div class="cat angry-cat">
+😾
+</div>
+
+<p class="love-text">
+KOK SALAH SIHHH 😾💢
+</p>
+
+<p>
+Kucingnya sampai kesel nih!
+</p>
+
+<button onclick="goTo('kodePage')">
+COBA LAGI 🔐
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =================================================
+     BENAR
+================================================= -->
+
+<section id="benarPage" class="page">
+
+<div class="card">
+
+<h1>🥰 BENARRR!</h1>
+
+<div class="cat happy-cat">
+😽
+</div>
+
+<div class="love-text">
+Silahkan masuk sayang 💗
+</div>
+
+<p>
+Aku sudah menunggu kamu di sini 🥺💕
+</p>
+
+<button onclick="goTo('fotoPage')">
+MASUK 💕
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =================================================
+     4 FOTO
+================================================= -->
+
+<section id="fotoPage" class="page">
+
+<div class="card">
+
+<h1>💞 OUR STORY</h1>
+
+<p>
+Geser satu-satu ya sayang ❤️
+</p>
+
+<div class="dots">
+
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+
+</div>
+
+
+<div class="photoSlide active">
+
+<img src="foto1.jpg" class="photo">
+
+<p class="love-text">
+“Bertemu denganmu adalah salah satu hal terindah dalam hidupku.” 💗
+</p>
+
+</div>
+
+
+<div class="photoSlide">
+
+<img src="foto2.jpg" class="photo">
+
+<p class="love-text">
+“Kalau harus memilih lagi, aku tetap memilih kamu.” ❤️
+</p>
+
+</div>
+
+
+<div class="photoSlide">
+
+<img src="foto3.jpg" class="photo">
+
+<p class="love-text">
+“Hal sederhana bersamamu selalu menjadi kenangan luar biasa.” 💕
+</p>
+
+</div>
+
+
+<div class="photoSlide">
+
+<img src="foto4.jpg" class="photo">
+
+<p class="love-text">
+“Semoga cerita kita terus berlanjut selamanya.” 💖
+</p>
+
+</div>
+
+
+<button onclick="nextPhoto()">
+GESER ➜ 💗
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =================================================
+     PELUK
+================================================= -->
+
+<section id="pelukPage" class="page">
+
+<div class="card">
+
+<h1>🫂 SINI SAYANG</h1>
+
+<div class="hug">
+🐱💗🐱
+</div>
+
+<div class="love-text">
+Mau dipeluk? 🥺
+</div>
+
+<p>
+Sini... aku peluk dulu.
+Jangan pergi ke mana-mana ya. 🫂❤️
+</p>
+
+<button onclick="goTo('momenPage')">
+PELUK DULU 🫂
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =================================================
+     MOMEN
+================================================= -->
+
+<section id="momenPage" class="page">
+
+<div class="card">
+
+<h1>✨ MOMEN TERINDAH</h1>
+
+<img
+src="momen1.jpg"
+class="photo"
+>
+
+<p class="love-text">
+“Foto sederhana, tapi kenangannya luar biasa.” ❤️
+</p>
+
+<br>
+
+<img
+src="momen2.jpg"
+class="photo"
+>
+
+<p class="love-text">
+“Terima kasih sudah membuat hidupku lebih berwarna.” 💕
+</p>
+
+<button onclick="goTo('favoritPage')">
+FOTO FAVORIT ➜ 💗
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =================================================
+     FOTO FAVORIT
+================================================= -->
+
+<section id="favoritPage" class="page">
+
+<div class="card">
+
+<h1>💖 FOTO FAVORITKU</h1>
+
+<img
+src="favorit.jpg"
+class="photo"
+>
+
+<p class="love-text">
+“Dari sekian banyak foto,
+foto ini selalu membuatku tersenyum.” 🥺💗
+</p>
+
+<p>
+Karena di dalamnya ada seseorang
+yang sangat berarti buat aku. ❤️
+</p>
+
+<button onclick="goTo('bonekaPage')">
+MASIH ADA SATU LAGI... 🌹
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =================================================
+     BONEKA
+================================================= -->
+
+<section id="bonekaPage" class="page">
+
+<div class="card">
+
+<h1>🌹 FOR YOU</h1>
+
+<div class="doll">
+🧸<span class="flower">🌹</span>
+</div>
+
+<div class="big-love">
+Jangan tinggalin aku 🥺
+</div>
+
+<p class="love-text">
+Aku mungkin nggak sempurna...
+</p>
+
+<p>
+Tapi aku ingin tetap ada di sampingmu,
+melewati hari baik dan buruk bersama-sama. ❤️
+</p>
+
+<p style="font-size:35px">
+🧸🌹💗🌹🧸
+</p>
+
+<button onclick="goTo('laguPage')">
+TERAKHIR... 🎵
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =================================================
+     LAGU
+================================================= -->
+
+<section id="laguPage" class="page">
+
+<div class="card">
+
+<h1>🎵 OUR SONG</h1>
+
+<div class="love-text">
+Shape of My Heart ❤️
+</div>
+
+<p>
+Untuk kamu yang selalu menjadi bagian
+dari cerita indahku. 🥺💕
+</p>
+
+<audio controls loop>
+
+<source
+src="shape-of-my-heart.mp3"
+type="audio/mpeg"
+>
+
+Browser kamu tidak mendukung audio.
+
+</audio>
+
+<br><br>
+
+<p class="big-love">
+I LOVE YOU ❤️
+</p>
+
+<p style="font-size:40px">
+💗🥺🫂💕
+</p>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =================================================
+   PASSWORD
+================================================= */
+
+const correctPassword = "123456";
+
+
+/* =================================================
+   PAGE TRANSITION
+================================================= */
+
+let currentPage =
+document.querySelector(".page.active");
+
+
+function goTo(id){
+
+    const nextPage =
+    document.getElementById(id);
+
+    if(!nextPage) return;
+
+    currentPage.classList.add("leave");
+
+    setTimeout(()=>{
+
+        currentPage.classList.remove("active");
+        currentPage.classList.remove("leave");
+
+        nextPage.classList.add("active");
+
+        currentPage = nextPage;
+
+    },400);
+
+}
+
+
+/* =================================================
+   PASSWORD
+================================================= */
+
+function cekPassword(){
+
+    const input =
+    document.getElementById("password").value;
+
+    if(input === correctPassword){
+
+        goTo("benarPage");
+
+    }else{
+
+        goTo("salahPage");
+
+    }
+
+}
+
+
+/* ENTER UNTUK LOGIN */
+
+document
+.getElementById("password")
+.addEventListener("keydown",function(e){
+
+    if(e.key === "Enter"){
+        cekPassword();
+    }
+
+});
+
+
+/* =================================================
+   FOTO SLIDE
+================================================= */
+
+let photoIndex = 0;
+
+const photos =
+document.querySelectorAll(".photoSlide");
+
+const dots =
+document.querySelectorAll(".dot");
+
+
+function nextPhoto(){
+
+    photos[photoIndex]
+    .classList.remove("active");
+
+    dots[photoIndex]
+    .classList.remove("active");
+
+    photoIndex++;
+
+    if(photoIndex >= photos.length){
+
+        photoIndex = 0;
+
+        goTo("pelukPage");
+
+        return;
+    }
+
+    photos[photoIndex]
+    .classList.add("active");
+
+    dots[photoIndex]
+    .classList.add("active");
+
+}
+
+
+/* =================================================
+   HATI OTOMATIS
+================================================= */
+
+function createHeart(){
+
+    const heart =
+    document.createElement("div");
+
+    heart.className="bg-heart";
+
+    const list=[
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💘",
+        "💞",
+        "🌸",
+        "✨"
+    ];
+
+    heart.innerHTML =
+    list[Math.floor(Math.random()*list.length)];
+
+    heart.style.left =
+    Math.random()*100+"vw";
+
+    heart.style.fontSize =
+    (15+Math.random()*30)+"px";
+
+    heart.style.animationDuration =
+    (5+Math.random()*6)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },12000);
+
+}
+
+setInterval(createHeart,450);
+
+
+/* =================================================
+   SWIPE HP
+================================================= */
+
+let touchStartX = 0;
+
+document.addEventListener("touchstart",function(e){
+
+    touchStartX =
+    e.changedTouches[0].screenX;
+
+});
+
+
+document.addEventListener("touchend",function(e){
+
+    let touchEndX =
+    e.changedTouches[0].screenX;
+
+    let distance =
+    touchEndX-touchStartX;
+
+    if(
+        Math.abs(distance)>70 &&
+        currentPage.id === "fotoPage"
+    ){
+
+        if(distance < 0){
+
+            nextPhoto();
+
+        }
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
+```
