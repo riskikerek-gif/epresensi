@@ -4,1060 +4,781 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CEYIN MY BF 💗</title>
+
+<title>CEYINN MY BF 💗</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    font-family:"Segoe UI",Arial,sans-serif;
-    min-height:100vh;
-    overflow:hidden;
-    background:
-        radial-gradient(circle at 20% 20%,#ff70b7,transparent 30%),
-        radial-gradient(circle at 80% 80%,#a94dff,transparent 30%),
-        linear-gradient(135deg,#18091d,#421337,#160817);
-    color:white;
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #a18cd1);
+    min-height: 100vh;
 }
 
-/* ================= BACKGROUND ================= */
-
-.bg-heart{
-    position:fixed;
-    bottom:-60px;
-    pointer-events:none;
-    animation:floatHeart linear forwards;
-    z-index:1;
+/* BACKGROUND */
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
 }
 
-@keyframes floatHeart{
-    0%{
-        transform:translateY(0) scale(.4) rotate(0);
-        opacity:0;
+.heart {
+    position: absolute;
+    animation: naik 7s linear infinite;
+    opacity: .7;
+    font-size: 25px;
+}
+
+@keyframes naik {
+    from {
+        transform: translateY(110vh) rotate(0deg);
     }
-    15%{opacity:1}
-    100%{
-        transform:translateY(-110vh) scale(1.4) rotate(360deg);
-        opacity:0;
+    to {
+        transform: translateY(-20vh) rotate(360deg);
     }
 }
 
-/* ================= PAGE ================= */
-
-.page{
-    position:fixed;
-    inset:0;
-    padding:20px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    opacity:0;
-    pointer-events:none;
-
-    transform:translateX(100%) scale(.9);
-
-    transition:
-        transform .8s cubic-bezier(.77,0,.18,1),
-        opacity .5s ease;
-
-    z-index:5;
-    overflow-y:auto;
+/* HALAMAN */
+.page {
+    position: absolute;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
 }
 
-.page.active{
-    opacity:1;
-    pointer-events:auto;
-    transform:translateX(0) scale(1);
+.page.active {
+    display: flex;
+    animation: masuk .6s ease;
 }
 
-.page.leave{
-    opacity:0;
-    transform:translateX(-100%) scale(.9);
-}
-
-/* ================= CARD ================= */
-
-.card{
-    width:100%;
-    max-width:650px;
-    text-align:center;
-
-    padding:35px 25px;
-
-    border-radius:35px;
-
-    background:rgba(255,255,255,.11);
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-
-    border:1px solid rgba(255,255,255,.25);
-
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.5),
-        inset 0 0 40px rgba(255,255,255,.04);
-
-    animation:cardAppear .8s ease;
-}
-
-@keyframes cardAppear{
-    from{
-        opacity:0;
-        transform:translateY(50px) rotateX(20deg);
+@keyframes masuk {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
     }
-    to{
-        opacity:1;
-        transform:translateY(0) rotateX(0);
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
-h1{
-    font-size:clamp(30px,8vw,50px);
-    color:white;
-    text-shadow:
-        0 0 10px #ff4fa3,
-        0 0 30px #ff4fa3,
-        0 0 60px #ff4fa3;
-    margin-bottom:15px;
+/* CARD */
+.card {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 30px;
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
 }
 
-p{
-    color:#ffe9f5;
-    line-height:1.7;
-    margin:10px 0;
+/* JUDUL */
+h1 {
+    color: #ff3f78;
+    margin-bottom: 15px;
 }
 
-.love-text{
-    font-size:20px;
-    font-weight:bold;
-    color:#ffd2e9;
+h2 {
+    color: #ff477e;
+    margin-bottom: 15px;
 }
 
-/* ================= BUTTON ================= */
-
-button{
-    border:none;
-    border-radius:50px;
-
-    padding:14px 28px;
-    margin:10px 5px;
-
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-
-    cursor:pointer;
-
-    background:linear-gradient(90deg,#ff3d9a,#a83cff);
-
-    box-shadow:
-        0 8px 30px rgba(255,50,160,.4);
-
-    transition:.3s;
+p {
+    color: #555;
+    line-height: 1.6;
 }
 
-button:hover{
-    transform:translateY(-4px) scale(1.06);
-    box-shadow:
-        0 12px 40px rgba(255,50,160,.7);
+/* QRIS */
+.qris {
+    width: 280px;
+    max-width: 100%;
+    border-radius: 20px;
+    margin: 20px auto;
+    display: block;
 }
 
-/* ================= QRIS ================= */
-
-.qris{
-    width:280px;
-    max-width:90%;
-
-    padding:12px;
-    background:white;
-
-    border-radius:25px;
-
-    margin:20px auto;
-
-    display:block;
-
-    box-shadow:
-        0 0 25px white,
-        0 0 60px #ff4fa3;
-
-    animation:qrisMove 3s infinite ease-in-out;
+/* INPUT */
+input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ff8caf;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 18px;
+    outline: none;
+    margin: 15px 0;
 }
 
-@keyframes qrisMove{
-    0%,100%{
-        transform:translateY(0) rotate(-1deg);
-    }
-    50%{
-        transform:translateY(-12px) rotate(1deg);
-    }
+/* BUTTON */
+button {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 50px;
+    background: linear-gradient(135deg,#ff477e,#ff7eb3);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 7px;
+    box-shadow: 0 8px 20px rgba(255,71,126,.3);
+    transition: .3s;
 }
 
-/* ================= INPUT ================= */
-
-input{
-    width:90%;
-    max-width:350px;
-
-    padding:16px;
-
-    border:none;
-    outline:none;
-
-    border-radius:50px;
-
-    text-align:center;
-
-    font-size:17px;
-
-    color:#7d2458;
-
-    background:white;
-
-    box-shadow:
-        0 0 25px rgba(255,70,170,.5);
+button:hover {
+    transform: scale(1.07);
 }
 
-/* =================================================
-   KUCING LANGSUNG DARI EMOJI
-================================================= */
-
-.cat{
-    font-size:150px;
-    line-height:1;
-
-    margin:25px auto;
-
-    display:block;
-
-    filter:
-        drop-shadow(0 15px 20px rgba(0,0,0,.3))
-        drop-shadow(0 0 25px #ff6bb5);
-
-    animation:catMove 1.8s infinite ease-in-out;
+/* KUCING */
+.cat {
+    font-size: 100px;
+    animation: goyang .8s infinite alternate;
+    margin: 20px;
 }
 
-@keyframes catMove{
-    0%,100%{
-        transform:
-            translateY(0)
-            rotate(-5deg)
-            scale(1);
+@keyframes goyang {
+    from {
+        transform: rotate(-8deg) scale(1);
     }
 
-    50%{
-        transform:
-            translateY(-18px)
-            rotate(5deg)
-            scale(1.08);
+    to {
+        transform: rotate(8deg) scale(1.08);
     }
 }
 
-/* KUCING KESEL */
-.angry-cat{
-    font-size:150px;
-    animation:
-        angry 0.35s infinite alternate,
-        angryJump 1.5s infinite;
+/* FOTO */
+.photoSlide {
+    display: none;
 }
 
-@keyframes angry{
-    from{transform:rotate(-8deg)}
-    to{transform:rotate(8deg)}
+.photoSlide.active {
+    display: block;
+    animation: fotoMasuk .7s ease;
 }
 
-@keyframes angryJump{
-    0%,100%{translate:0 0}
-    50%{translate:0 -15px}
-}
-
-/* KUCING SENYUM */
-.happy-cat{
-    font-size:150px;
-    animation:
-        happy 2s infinite ease-in-out;
-}
-
-@keyframes happy{
-    0%,100%{
-        transform:translateY(0) scale(1);
+@keyframes fotoMasuk {
+    from {
+        opacity: 0;
+        transform: scale(.8) rotate(-5deg);
     }
-    50%{
-        transform:translateY(-20px) scale(1.1);
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
     }
 }
 
-/* ================= FOTO ================= */
-
-.photo{
-    width:100%;
-    max-height:450px;
-    object-fit:cover;
-
-    border-radius:25px;
-
-    border:7px solid white;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.45),
-        0 0 30px rgba(255,70,170,.35);
-
-    transition:.5s;
+.photo {
+    width: 100%;
+    max-width: 400px;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 25px;
+    display: block;
+    margin: 15px auto;
+    box-shadow: 0 15px 35px rgba(0,0,0,.25);
 }
 
-.photo:hover{
-    transform:scale(1.03) rotate(1deg);
+.love-text {
+    font-size: 18px;
+    color: #ff477e;
+    font-weight: bold;
+    margin: 15px 0;
 }
 
-/* ================= SLIDE ================= */
-
-.photoSlide{
-    display:none;
+/* DOT */
+.dots {
+    margin: 15px;
 }
 
-.photoSlide.active{
-    display:block;
-    animation:photoSlide .8s cubic-bezier(.2,.8,.2,1);
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 50%;
+    margin: 4px;
 }
 
-@keyframes photoSlide{
-    from{
-        opacity:0;
-        transform:
-            translateX(100px)
-            rotate(5deg)
-            scale(.85);
+.dot.active {
+    background: #ff477e;
+}
+
+/* BONEKA */
+.doll {
+    font-size: 120px;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
     }
 
-    to{
-        opacity:1;
-        transform:
-            translateX(0)
-            rotate(0)
-            scale(1);
-    }
-}
-
-/* ================= DOT ================= */
-
-.dots{
-    display:flex;
-    justify-content:center;
-    gap:7px;
-    margin:20px;
-}
-
-.dot{
-    width:9px;
-    height:9px;
-    border-radius:50%;
-    background:#ffffff55;
-    transition:.3s;
-}
-
-.dot.active{
-    width:30px;
-    background:#ff62ad;
-    box-shadow:0 0 15px #ff62ad;
-}
-
-/* =================================================
-   PELUKAN
-================================================= */
-
-.hug{
-    font-size:130px;
-    margin:20px;
-
-    animation:hug 2s infinite ease-in-out;
-}
-
-@keyframes hug{
-    0%,100%{
-        transform:scale(1);
-    }
-    50%{
-        transform:scale(1.15);
+    to {
+        transform: translateY(-15px);
     }
 }
 
-/* =================================================
-   BONEKA + BUNGA
-================================================= */
+/* MOBILE */
+@media(max-width:500px) {
 
-.doll{
-    font-size:130px;
-    margin:20px;
-
-    animation:dollMove 2.5s infinite ease-in-out;
-
-    filter:
-        drop-shadow(0 15px 20px rgba(0,0,0,.3))
-        drop-shadow(0 0 25px #ff5dac);
-}
-
-@keyframes dollMove{
-    0%,100%{
-        transform:rotate(-5deg) translateY(0);
+    .card {
+        padding: 22px;
     }
 
-    50%{
-        transform:rotate(5deg) translateY(-15px);
-    }
-}
-
-.flower{
-    display:inline-block;
-    animation:flower 1s infinite alternate;
-}
-
-@keyframes flower{
-    from{transform:rotate(-10deg)}
-    to{transform:rotate(10deg)}
-}
-
-/* ================= JANGAN TINGGALIN ================= */
-
-.big-love{
-    font-size:clamp(28px,7vw,45px);
-    font-weight:bold;
-
-    color:white;
-
-    text-shadow:
-        0 0 10px #ff3d9a,
-        0 0 30px #ff3d9a,
-        0 0 60px #ff3d9a;
-
-    animation:pulse 1.2s infinite;
-}
-
-@keyframes pulse{
-    50%{
-        transform:scale(1.08);
-    }
-}
-
-/* ================= MUSIC ================= */
-
-audio{
-    width:100%;
-    margin-top:25px;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:500px){
-
-    .card{
-        padding:28px 17px;
+    h1 {
+        font-size: 28px;
     }
 
-    .cat{
-        font-size:110px;
+    .cat {
+        font-size: 80px;
     }
 
-    .hug{
-        font-size:100px;
-    }
-
-    .doll{
-        font-size:100px;
+    .doll {
+        font-size: 90px;
     }
 }
 </style>
 </head>
 
-
 <body>
 
+<!-- BACKGROUND -->
+<div class="background">
+    <div class="heart" style="left:5%;animation-delay:0s;">💗</div>
+    <div class="heart" style="left:20%;animation-delay:2s;">💕</div>
+    <div class="heart" style="left:40%;animation-delay:4s;">💖</div>
+    <div class="heart" style="left:60%;animation-delay:1s;">💘</div>
+    <div class="heart" style="left:80%;animation-delay:3s;">💞</div>
+    <div class="heart" style="left:90%;animation-delay:5s;">💗</div>
+</div>
 
-<!-- =================================================
-     QRIS
-================================================= -->
+
+<!-- ================= QRIS ================= -->
 
 <section id="qrisPage" class="page active">
 
-<div class="card">
+    <div class="card">
 
-<h1>💗 CEYIN MY BF 💗</h1>
+        <h1>💗 CEYINN MY BF 💗</h1>
 
-<p class="love-text">
-Welcome to our little world 🥺💕
-</p>
+        <p>
+            Hai sayanggg 🥰<br>
+            Sebelum masuk, lihat dulu sesuatu untukmu 💕
+        </p>
 
-<p>
-Scan dulu QRIS-nya ya sayang 😚
-</p>
+        <!-- QRIS -->
+        <img
+            src="qris.png"
+            class="qris"
+            alt="QRIS"
+        >
 
-<img
-src="qris.png"
-class="qris"
-alt="QRIS"
->
+        <button onclick="showPassword()">
+            Lanjut Sayang 💕
+        </button>
 
-<button onclick="goTo('kodePage')">
-SUDAH SCAN 💗
-</button>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =================================================
-     KODE
-================================================= -->
+<!-- ================= PASSWORD ================= -->
 
-<section id="kodePage" class="page">
+<section id="passwordPage" class="page">
 
-<div class="card">
+    <div class="card">
 
-<h1>🔐 KODE RAHASIA</h1>
+        <h1>🔐 Kode Rahasia</h1>
 
-<p class="love-text">
-Masukkan kode rahasia untuk masuk 💕
-</p>
+        <p>
+            Masukkan kode rahasia untuk masuk 💗
+        </p>
 
-<input
-id="password"
-type="password"
-placeholder="Kode rahasia..."
->
+        <input
+            type="password"
+            id="password"
+            placeholder="Masukkan kode..."
+        >
 
-<br>
+        <button onclick="checkPassword()">
+            MASUK 💕
+        </button>
 
-<button onclick="cekPassword()">
-MASUK ❤️
-</button>
+        <p id="wrongText"></p>
 
-</div>
+    </div>
 
 </section>
 
 
-<!-- =================================================
-     SALAH
-================================================= -->
+<!-- ================= SALAH ================= -->
 
-<section id="salahPage" class="page">
+<section id="wrongPage" class="page">
 
-<div class="card">
+    <div class="card">
 
-<h1>😾 SALAHHH!</h1>
+        <div class="cat">😾</div>
 
-<div class="cat angry-cat">
-😾
-</div>
+        <h2>HEIII 😾</h2>
 
-<p class="love-text">
-KOK SALAH SIHHH 😾💢
-</p>
+        <p>
+            Kodenya salah sayanggg!<br>
+            Coba ingat lagi yaa 😤💕
+        </p>
 
-<p>
-Kucingnya sampai kesel nih!
-</p>
+        <button onclick="backPassword()">
+            Coba Lagi 🔐
+        </button>
 
-<button onclick="goTo('kodePage')">
-COBA LAGI 🔐
-</button>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =================================================
-     BENAR
-================================================= -->
+<!-- ================= BENAR ================= -->
 
-<section id="benarPage" class="page">
+<section id="correctPage" class="page">
 
-<div class="card">
+    <div class="card">
 
-<h1>🥰 BENARRR!</h1>
+        <div class="cat">😽</div>
 
-<div class="cat happy-cat">
-😽
-</div>
+        <h1>Silahkan Masuk Sayang 💗</h1>
 
-<div class="love-text">
-Silahkan masuk sayang 💗
-</div>
+        <p>
+            Akhirnya kamu berhasil masuk 🥰
+        </p>
 
-<p>
-Aku sudah menunggu kamu di sini 🥺💕
-</p>
+        <button onclick="openMain()">
+            Masuk ke Cerita Kita 💕
+        </button>
 
-<button onclick="goTo('fotoPage')">
-MASUK 💕
-</button>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =================================================
-     4 FOTO
-================================================= -->
+<!-- ================= FOTO 1-4 ================= -->
 
-<section id="fotoPage" class="page">
+<section id="mainPage" class="page">
 
-<div class="card">
+    <div class="card">
 
-<h1>💞 OUR STORY</h1>
+        <h1>💗 Moment Kita 💗</h1>
 
-<p>
-Geser satu-satu ya sayang ❤️
-</p>
+        <!-- FOTO 1 -->
+        <div class="photoSlide active">
 
-<div class="dots">
+            <img
+                src="https://i.imgur.com/OwLLq9F.jpeg"
+                class="photo"
+                alt="Foto pertama"
+            >
 
-<span class="dot active"></span>
-<span class="dot"></span>
-<span class="dot"></span>
-<span class="dot"></span>
+            <p class="love-text">
+                “Bertemu denganmu adalah salah satu hal
+                terindah dalam hidupku.” 💗
+            </p>
 
-</div>
-
-
-<div class="photoSlide active">
-
-<img src="https://i.imgur.com/OwLLq9F.jpeg" class="photo">
-
-<p class="love-text">
-“Bertemu denganmu adalah salah satu hal terindah dalam hidupku.” 💗
-</p>
-
-</div>
+        </div>
 
 
-<div class="photoSlide">
+        <!-- FOTO 2 -->
+        <div class="photoSlide">
 
-<img src="foto2.jpg" class="photo">
+            <img
+                src="foto2.jpg"
+                class="photo"
+                alt="Foto kedua"
+            >
 
-<p class="love-text">
-“Kalau harus memilih lagi, aku tetap memilih kamu.” ❤️
-</p>
+            <p class="love-text">
+                “Senyummu selalu berhasil membuat hariku
+                menjadi lebih indah.” 🥰
+            </p>
 
-</div>
-
-
-<div class="photoSlide">
-
-<img src="foto3.jpg" class="photo">
-
-<p class="love-text">
-“Hal sederhana bersamamu selalu menjadi kenangan luar biasa.” 💕
-</p>
-
-</div>
+        </div>
 
 
-<div class="photoSlide">
+        <!-- FOTO 3 -->
+        <div class="photoSlide">
 
-<img src="foto4.jpg" class="photo">
+            <img
+                src="foto3.jpg"
+                class="photo"
+                alt="Foto ketiga"
+            >
 
-<p class="love-text">
-“Semoga cerita kita terus berlanjut selamanya.” 💖
-</p>
+            <p class="love-text">
+                “Aku ingin terus membuat banyak kenangan
+                indah bersamamu.” 💕
+            </p>
 
-</div>
-
-
-<button onclick="nextPhoto()">
-GESER ➜ 💗
-</button>
-
-</div>
-
-</section>
+        </div>
 
 
-<!-- =================================================
-     PELUK
-================================================= -->
+        <!-- FOTO 4 -->
+        <div class="photoSlide">
 
-<section id="pelukPage" class="page">
+            <img
+                src="foto4.jpg"
+                class="photo"
+                alt="Foto keempat"
+            >
 
-<div class="card">
+            <p class="love-text">
+                “Terima kasih sudah menjadi bagian
+                dari cerita hidupku.” 💖
+            </p>
 
-<h1>🫂 SINI SAYANG</h1>
+        </div>
 
-<div class="hug">
-🐱💗🐱
-</div>
 
-<div class="love-text">
-Mau dipeluk? 🥺
-</div>
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
 
-<p>
-Sini... aku peluk dulu.
-Jangan pergi ke mana-mana ya. 🫂❤️
-</p>
+        <button onclick="nextPhoto()">
+            Foto Berikutnya ➜
+        </button>
 
-<button onclick="goTo('momenPage')">
-PELUK DULU 🫂
-</button>
+        <button id="nextMoment" onclick="openHug()" style="display:none;">
+            Lanjut 💕
+        </button>
 
-</div>
+    </div>
 
 </section>
 
 
-<!-- =================================================
-     MOMEN
-================================================= -->
+<!-- ================= PELUK ================= -->
 
-<section id="momenPage" class="page">
+<section id="hugPage" class="page">
 
-<div class="card">
+    <div class="card">
 
-<h1>✨ MOMEN TERINDAH</h1>
+        <h1>🥺 Mau Dipeluk</h1>
 
-<img
-src="https://i.imgur.com/OwLLq9F.jpeg"
-class="photo"
->
+        <div class="cat">
+            🐱💗🐱
+        </div>
 
-<p class="love-text">
-“Foto sederhana, tapi kenangannya luar biasa.” ❤️
-</p>
+        <p>
+            Kalau aku ada di sampingmu sekarang,<br>
+            aku mau peluk kamu erat-erat 🫂💕
+        </p>
 
-<br>
+        <button onclick="openMoments()">
+            Lihat Moment Terindah 📸
+        </button>
 
-<img
-src="https://i.imgur.com/OwLLq9F.jpeg"
-class="photo"
->
-
-<p class="love-text">
-“Terima kasih sudah membuat hidupku lebih berwarna.” 💕
-</p>
-
-<button onclick="goTo('favoritPage')">
-FOTO FAVORIT ➜ 💗
-</button>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =================================================
-     FOTO FAVORIT
-================================================= -->
+<!-- ================= MOMENT ================= -->
 
-<section id="favoritPage" class="page">
+<section id="momentPage" class="page">
 
-<div class="card">
+    <div class="card">
 
-<h1>💖 FOTO FAVORITKU</h1>
+        <h1>📸 Moment Terindah</h1>
 
-<img
-src="https://i.imgur.com/OwLLq9F.jpeg"
-class="photo"
->
+        <img
+            src="momen1.jpg"
+            class="photo"
+            alt="Moment pertama"
+        >
 
-<p class="love-text">
-“Dari sekian banyak foto,
-foto ini selalu membuatku tersenyum.” 🥺💗
-</p>
+        <img
+            src="momen2.jpg"
+            class="photo"
+            alt="Moment kedua"
+        >
 
-<p>
-Karena di dalamnya ada seseorang
-yang sangat berarti buat aku. ❤️
-</p>
+        <button onclick="openFavorite()">
+            Foto Favorit 💗
+        </button>
 
-<button onclick="goTo('bonekaPage')">
-MASIH ADA SATU LAGI... 🌹
-</button>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =================================================
-     BONEKA
-================================================= -->
+<!-- ================= FAVORIT ================= -->
 
-<section id="bonekaPage" class="page">
+<section id="favoritePage" class="page">
 
-<div class="card">
+    <div class="card">
 
-<h1>🌹 FOR YOU</h1>
+        <h1>💗 Foto Favoritku</h1>
 
-<div class="doll">
-🧸<span class="flower">🌹</span>
-</div>
+        <img
+            src="favorit.jpg"
+            class="photo"
+            alt="Foto favorit"
+        >
 
-<div class="big-love">
-Jangan tinggalin aku 🥺
-</div>
+        <p class="love-text">
+            Dari banyaknya foto yang ada,<br>
+            foto ini selalu punya tempat spesial
+            di hatiku. 🥺💕
+        </p>
 
-<p class="love-text">
-Aku mungkin nggak sempurna...
-</p>
+        <button onclick="openDoll()">
+            Ada sesuatu lagi... 🎁
+        </button>
 
-<p>
-Tapi aku ingin tetap ada di sampingmu,
-melewati hari baik dan buruk bersama-sama. ❤️
-</p>
-
-<p style="font-size:35px">
-🧸🌹💗🌹🧸
-</p>
-
-<button onclick="goTo('laguPage')">
-TERAKHIR... 🎵
-</button>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =================================================
-     LAGU
-================================================= -->
+<!-- ================= BONEKA ================= -->
 
-<section id="laguPage" class="page">
+<section id="dollPage" class="page">
 
-<div class="card">
+    <div class="card">
 
-<h1>🎵 OUR SONG</h1>
+        <div class="doll">
+            🧸🌹
+        </div>
 
-<div class="love-text">
-Shape of My Heart ❤️
-</div>
+        <h1>
+            Jangan Tinggalin Aku 🥺
+        </h1>
 
-<p>
-Untuk kamu yang selalu menjadi bagian
-dari cerita indahku. 🥺💕
-</p>
+        <p>
+            Aku mungkin nggak sempurna,<br>
+            tapi aku akan selalu berusaha
+            menjaga kamu dan hubungan kita. 💗
+        </p>
 
-<audio controls loop>
+        <button onclick="openMusic()">
+            Terakhir... 🎵
+        </button>
 
-<source
-src="shape-of-my-heart.mp3"
-type="audio/mpeg"
->
+    </div>
 
-Browser kamu tidak mendukung audio.
+</section>
 
-</audio>
 
-<br><br>
+<!-- ================= MUSIC ================= -->
 
-<p class="big-love">
-I LOVE YOU ❤️
-</p>
+<section id="musicPage" class="page">
 
-<p style="font-size:40px">
-💗🥺🫂💕
-</p>
+    <div class="card">
 
-</div>
+        <div class="cat">😽🎵</div>
+
+        <h1>
+            Lagu Untukmu 💗
+        </h1>
+
+        <p>
+            Shape of My Heart 🎵
+        </p>
+
+        <audio
+            id="music"
+            controls
+            loop
+            style="width:100%;margin-top:20px;"
+        >
+            <source
+                src="shape-of-my-heart.mp3"
+                type="audio/mpeg"
+            >
+        </audio>
+
+        <p class="love-text">
+            “Whatever happens,<br>
+            I hope you stay with me.” 💗
+        </p>
+
+    </div>
 
 </section>
 
 
 <script>
 
-/* =================================================
-   PASSWORD
-================================================= */
-
+/* PASSWORD */
 const correctPassword = "123456";
 
 
-/* =================================================
-   PAGE TRANSITION
-================================================= */
+/* PINDAH HALAMAN */
+function showPage(id) {
 
-let currentPage =
-document.querySelector(".page.active");
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
 
-
-function goTo(id){
-
-    const nextPage =
-    document.getElementById(id);
-
-    if(!nextPage) return;
-
-    currentPage.classList.add("leave");
-
-    setTimeout(()=>{
-
-        currentPage.classList.remove("active");
-        currentPage.classList.remove("leave");
-
-        nextPage.classList.add("active");
-
-        currentPage = nextPage;
-
-    },400);
-
+    document.getElementById(id).classList.add("active");
 }
 
 
-/* =================================================
-   PASSWORD
-================================================= */
+/* QRIS */
+function showPassword() {
+    showPage("passwordPage");
+}
 
-function cekPassword(){
 
-    const input =
-    document.getElementById("password").value;
+/* PASSWORD */
+function checkPassword() {
 
-    if(input === correctPassword){
+    const password =
+        document.getElementById("password").value;
 
-        goTo("benarPage");
+    if(password === correctPassword) {
 
-    }else{
+        showPage("correctPage");
 
-        goTo("salahPage");
+    } else {
+
+        showPage("wrongPage");
 
     }
 
 }
 
 
-/* ENTER UNTUK LOGIN */
+/* COBA LAGI */
+function backPassword() {
 
-document
-.getElementById("password")
-.addEventListener("keydown",function(e){
+    document.getElementById("password").value = "";
 
-    if(e.key === "Enter"){
-        cekPassword();
-    }
+    showPage("passwordPage");
 
-});
+}
 
 
-/* =================================================
-   FOTO SLIDE
-================================================= */
+/* MASUK */
+function openMain() {
 
-let photoIndex = 0;
+    showPage("mainPage");
 
-const photos =
-document.querySelectorAll(".photoSlide");
+}
+
+
+/* FOTO */
+let currentPhoto = 0;
+
+const slides =
+    document.querySelectorAll(".photoSlide");
 
 const dots =
-document.querySelectorAll(".dot");
+    document.querySelectorAll(".dot");
 
 
-function nextPhoto(){
+function nextPhoto() {
 
-    photos[photoIndex]
-    .classList.remove("active");
+    slides[currentPhoto].classList.remove("active");
+    dots[currentPhoto].classList.remove("active");
 
-    dots[photoIndex]
-    .classList.remove("active");
+    currentPhoto++;
 
-    photoIndex++;
+    if(currentPhoto >= slides.length) {
 
-    if(photoIndex >= photos.length){
+        currentPhoto = 0;
 
-        photoIndex = 0;
-
-        goTo("pelukPage");
-
-        return;
+        document.getElementById("nextMoment")
+            .style.display = "inline-block";
     }
 
-    photos[photoIndex]
-    .classList.add("active");
-
-    dots[photoIndex]
-    .classList.add("active");
+    slides[currentPhoto].classList.add("active");
+    dots[currentPhoto].classList.add("active");
 
 }
 
 
-/* =================================================
-   HATI OTOMATIS
-================================================= */
+/* HUG */
+function openHug() {
 
-function createHeart(){
-
-    const heart =
-    document.createElement("div");
-
-    heart.className="bg-heart";
-
-    const list=[
-        "❤️",
-        "💕",
-        "💗",
-        "💖",
-        "💘",
-        "💞",
-        "🌸",
-        "✨"
-    ];
-
-    heart.innerHTML =
-    list[Math.floor(Math.random()*list.length)];
-
-    heart.style.left =
-    Math.random()*100+"vw";
-
-    heart.style.fontSize =
-    (15+Math.random()*30)+"px";
-
-    heart.style.animationDuration =
-    (5+Math.random()*6)+"s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
-        heart.remove();
-    },12000);
+    showPage("hugPage");
 
 }
 
-setInterval(createHeart,450);
+
+/* MOMENT */
+function openMoments() {
+
+    showPage("momentPage");
+
+}
 
 
-/* =================================================
-   SWIPE HP
-================================================= */
+/* FAVORIT */
+function openFavorite() {
+
+    showPage("favoritePage");
+
+}
+
+
+/* BONEKA */
+function openDoll() {
+
+    showPage("dollPage");
+
+}
+
+
+/* MUSIC */
+function openMusic() {
+
+    showPage("musicPage");
+
+    const music =
+        document.getElementById("music");
+
+    music.play().catch(() => {});
+
+}
+
+
+/* SWIPE FOTO DI HP */
 
 let touchStartX = 0;
 
-document.addEventListener("touchstart",function(e){
+document.addEventListener("touchstart", function(e) {
 
     touchStartX =
-    e.changedTouches[0].screenX;
+        e.changedTouches[0].screenX;
 
 });
 
 
-document.addEventListener("touchend",function(e){
+document.addEventListener("touchend", function(e) {
 
-    let touchEndX =
-    e.changedTouches[0].screenX;
-
-    let distance =
-    touchEndX-touchStartX;
+    const touchEndX =
+        e.changedTouches[0].screenX;
 
     if(
-        Math.abs(distance)>70 &&
-        currentPage.id === "fotoPage"
-    ){
+        showPage &&
+        document.getElementById("mainPage")
+            .classList.contains("active")
+    ) {
 
-        if(distance < 0){
+        if(touchStartX - touchEndX > 50) {
 
             nextPhoto();
 
